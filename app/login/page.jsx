@@ -1,8 +1,53 @@
 "use client"
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { authenticate, isAuthenticated, login } from "../api/userApi";
+import Swal from "sweetalert2";
 
 const Login = () => {
+  let[user,setUser] = useState({
+    email:"",
+    password:""
+  })
+  const handleChange = (e)=>{
+    setUser({...user,[e.target.name]: e.target.value})
+
+  }
+  let{email,password} = user
+  let router = useRouter();
+
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+    login(user)
+    .then(data=>{
+      if( data && data.error){
+        Swal.fire({
+          title:'Error',
+          text: data.error,
+          icon:'error',
+          confirmButtonColor :"Blue",
+          timer:3000,
+          timerProgressBar: true,
+          position:'top-end',
+          showCancelButton : true,
+          showConfirmButton: false
+        })
+      }
+      else{
+        authenticate(data)
+        isAuthenticated()
+        .then(data=>{
+          if(data.user.role==1){
+            router.push('/admin/dashboard')
+          }
+          else{
+            router.push('/')
+          }
+        })
+      }
+    })
+  }
   return (
     <>
       <div className=" p-5 w  ">
@@ -16,6 +61,9 @@ const Login = () => {
           <input
             type="text"
             id="email"
+            name="email"
+            value={email}
+            onChange={handleChange}
             className="w-full border-2 border-gray-300 px-4 py-2 rounded-lg mt-3 mb-3 focus:outline-none"
           />
           <label htmlFor="password" className="text-xl  ">
@@ -24,6 +72,9 @@ const Login = () => {
           <input
             type="password"
             id="password"
+            name="password"
+            value={password}
+            onChange={handleChange}
             className="w-full border-2 border-gray-300 px-4 py-2 rounded-lg mt-3 mb-3 focus:outline-none"
           />
           <div className="flex justify-between mt-2">
@@ -36,7 +87,8 @@ const Login = () => {
               Forget Password
             </Link>
           </div>
-          <button className="text-3xl bg-blue-500 w-full h-15 mt-3 hover:bg-blue-600 rounded-lg text-white p-3">
+          <button  onClick={handleSubmit}
+          className="text-3xl bg-blue-500 w-full h-15 mt-3 hover:bg-blue-600 rounded-lg text-white p-3">
             Login
           </button>
 

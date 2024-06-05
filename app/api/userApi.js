@@ -5,7 +5,7 @@ export const register = async (user)=>{
         const response = await fetch(`${API}/register`, {
             method: "POST",
             headers: {
-                "Content-type": "applications/json"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(user)
         })
@@ -21,4 +21,26 @@ export const verify = async(token)=>{
     .then(response=>response.json())
     .catch(error=>console.log(error))
 
+}
+
+export const login= (user)=>{
+    return fetch(`${API}/login`,{
+        method : 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+
+    })
+    .then(response=>response.json())
+    .catch(error=>console.log(error))
+
+}
+
+export const authenticate = (data)=>{
+    localStorage.setItem('jwt',JSON.stringify(data))
+}
+
+export const isAuthenticated = async ()=>{
+    return localStorage.getItem('jwt')? await JSON.parse(localStorage.getItem('jwt')):false
 }

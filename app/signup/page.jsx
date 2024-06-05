@@ -15,16 +15,17 @@ const Signup = () => {
   }
 
   let {username,email,password} = user
+
 const handleSubmit= (e)=>{
   e.preventDefault()
   register(user)
   .then(data=>{
-    if(data.error){
+    if( data && data.error){
       alert(data.error)
     }
     else{
         setUser({username:"",email:"",password:""})
-      alert("User Register successfully")
+       alert("User Register successfully")
     }
   })
 }
