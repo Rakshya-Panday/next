@@ -42,7 +42,7 @@ const verifyEmail = () => {
     const showSuccess = ()=>{
         if(success){
             console.log(success)
-            Swal.fire('Congrats!',data.message,'success')
+            Swal.fire('Congrats!',success,'success')
         }
     }
 
@@ -55,5 +55,4 @@ const verifyEmail = () => {
      );
 }
  
-export default verifyEmail
-;
+export default verifyEmail;

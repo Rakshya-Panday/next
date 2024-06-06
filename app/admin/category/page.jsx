@@ -37,7 +37,7 @@ const page = () => {
                         <td>{i+1}</td>
                         <td>{category. category_name}</td>
                         <td>
-                            <button>Update</button>
+                            <Link  href = {`/admin/category/${category._id}`}>Update</Link>
                             <button>Delete</button>
                         </td>
                     </tr>

@@ -12,8 +12,31 @@ export const addCategory = (category,token)=>{
         headers :{
             "Content Type":"application/json",
             Authorization : `Bearer ${token}` 
-        }
+        },
+        body: JSON.stringify(category)
+     
     })
     .then(response=>response.json())
     .catch(error=>console.log(error))
+}
+
+export const updateCategory = (id,category,token)=>{
+    return fetch(`${API}/updatecategory/${id}`,{
+        method : 'PUT',
+        headers :{
+            "Content Type":"application/json",
+            Authorization : `Bearer ${token}` 
+        },
+        body: JSON.stringify(category)
+     
+    })
+    .then(response=>response.json())
+    .catch(error=>console.log(error))
+}
+
+export const getCategoryDetails  = id =>{
+    return fetch(`${API}/categorydetails/${id}`)
+    .then(response=>response.json())
+    .catch(error=>console.log(error))
+
 }

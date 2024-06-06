@@ -42,5 +42,6 @@ export const authenticate = (data)=>{
 }
 
 export const isAuthenticated = async ()=>{
+    if(typeof window!=="undefined")
     return localStorage.getItem('jwt')? await JSON.parse(localStorage.getItem('jwt')):false
 }

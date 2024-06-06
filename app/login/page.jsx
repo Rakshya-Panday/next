@@ -21,6 +21,7 @@ const Login = () => {
     e.preventDefault()
     login(user)
     .then(data=>{
+      console.log(data)
       if( data && data.error){
         Swal.fire({
           title:'Error',
