@@ -1,10 +1,4 @@
 import React from "react";
-
-import { Carousel } from "flowbite-react";
-
-
-import watch from "../assets/images/watch.jpg";
-import flower from "../assets/images/flower.jpg";
 import Link from "next/link";
 
 const Home = () => {
@@ -64,7 +58,7 @@ const Home = () => {
         <div className="grid grid-cols-3 gap-3">
           <div className="relative rounded-sm overflow-hidden">
             <Link href = "/">
-              <img src={watch} alt="" />
+              <img src={'./assets/images/flower.jpg'} alt="" />
               <p className="absolute inset-0 bg-black opacity-50 flex items-center justify-center text-xl text-white font-medium hover:bg-opacity-65 shadow-sm">
                 Electronics
               </p>
@@ -72,7 +66,7 @@ const Home = () => {
           </div>
           <div className="relative rounded-sm overflow-hidden">
             <Link href = "/">
-              <img src={flower} alt="" />
+              <img src={'./assets/images/flower.jpg'}  alt="" />
               <p className="absolute inset-0 bg-black opacity-50 flex items-center justify-center text-xl text-white font-medium  hover:bg-opacity-65 shadow-sm">
                 Floweing and Gardening
               </p>
@@ -80,7 +74,7 @@ const Home = () => {
           </div>
           <div className="relative rounded-sm overflow-hidden">
             <Link href = "/">
-              <img src={watch} alt="" />
+              <img src={'./assets/images/flower.jpg'}  alt="" />
               <p className="absolute inset-0 bg-black opacity-50 flex items-center justify-center text-xl text-white font-medium  hover:bg-opacity-65 shadow-sm">
                 {" "}
                 Beauty & Health
@@ -89,7 +83,7 @@ const Home = () => {
           </div>
           <div className="relative rounded-sm overflow-hidden">
             <Link href = "/">
-              <img src={watch} alt="" />
+              <img src={'./assets/images/flower.jpg'}  alt="" />
               <p className="absolute inset-0 bg-black opacity-50 flex items-center justify-center text-xl text-white font-medium  hover:bg-opacity-65 shadow-sm">
                 Stationary
               </p>
@@ -97,7 +91,7 @@ const Home = () => {
           </div>
           <div className="relative rounded-sm overflow-hidden">
             <Link href = "/">
-              <img src={watch} alt="" />
+              <img src={'./assets/images/flower.jpg'}  alt="" />
               <p className="absolute inset-0 bg-black opacity-50 flex items-center justify-center text-xl text-white font-medium  hover:bg-opacity-65 shadow-sm">
                 Babies & Toys
               </p>
@@ -105,7 +99,7 @@ const Home = () => {
           </div>
           <div className="relative rounded-sm overflow-hidden">
             <Link href = "/">
-              <img src={watch} alt="" />
+              <img src={'./assets/images/flower.jpg'} alt="" />
               <p className="absolute inset-0 bg-black opacity-50 flex items-center justify-center text-xl text-white font-medium  hover:bg-opacity-65 shadow-sm">
                 Sports & Outdoor
               </p>
@@ -121,7 +115,7 @@ const Home = () => {
         <div className="grid grid-cols-4 gap-6">
           <div className="bg-white shadow-md overflow-hidden rounded">
             <div className="relative">
-              <img src={flower} alt="" className="w-full" />
+              <img src={'./assets/images/flower.jpg'}  alt="" className="w-full" />
               <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-1">
                 <Link href = "/">
                   {" "}
@@ -143,7 +137,7 @@ const Home = () => {
           </div>
           <div className="bg-white shadow-md overflow-hidden rounded">
             <div className="relative">
-              <img src={flower} alt="" className="w-full" />
+              <img src={'./assets/images/flower.jpg'}  alt="" className="w-full" />
               <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-1">
                 <Link href = "/">
                   {" "}
@@ -165,7 +159,7 @@ const Home = () => {
           </div>
           <div className="bg-white shadow-md overflow-hidden rounded">
             <div className="relative">
-              <img src={flower} alt="" className="w-full" />
+              <img src={'./assets/images/flower.jpg'}  alt="" className="w-full" />
               <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-1">
                 <Link href = "/">
                   {" "}
@@ -187,7 +181,7 @@ const Home = () => {
           </div>
           <div className="bg-white shadow-md overflow-hidden rounded">
             <div className="relative">
-              <img src={flower} alt="" className="w-full" />
+              <img src={'./assets/images/flower.jpg'}  alt="" className="w-full" />
               <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-1">
                 <Link href = "/">
                   {" "}

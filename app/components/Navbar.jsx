@@ -12,6 +12,7 @@ const Navbar = () => {
           <div className="px-8 py-5 bg-blue-600 flex   items-center cursor-pointer relative group">
             <span className="text-white">
               <i class="bi bi-list text-xl"></i>
+              
             </span>
             <span className="text-white text-xl capitalize ml-2">
               {" "}

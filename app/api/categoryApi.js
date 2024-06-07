@@ -10,7 +10,7 @@ export const addCategory = (category,token)=>{
     return fetch(`${API}/addcategory`,{
         method : 'POST',
         headers :{
-            "Content Type":"application/json",
+            "Content-Type":"application/json",
             Authorization : `Bearer ${token}` 
         },
         body: JSON.stringify(category)
@@ -24,7 +24,7 @@ export const updateCategory = (id,category,token)=>{
     return fetch(`${API}/updatecategory/${id}`,{
         method : 'PUT',
         headers :{
-            "Content Type":"application/json",
+            "Content-Type":"application/json",
             Authorization : `Bearer ${token}` 
         },
         body: JSON.stringify(category)
@@ -36,6 +36,20 @@ export const updateCategory = (id,category,token)=>{
 
 export const getCategoryDetails  = id =>{
     return fetch(`${API}/categorydetails/${id}`)
+    .then(response=>response.json())
+    .catch(error=>console.log(error))
+
+}
+
+
+export const deleteCategory = ()=>{
+    return fetch(`${API}/deleteCategory/${id},`,{
+        method : 'DELETE',
+        headers :{
+            "Content Type":"application/json",
+            Authorization : `Bearer ${token}` 
+        },
+        })
     .then(response=>response.json())
     .catch(error=>console.log(error))
 

@@ -1,10 +1,14 @@
 "use client"
-import { getAllCategories } from '@/app/api/categoryApi'
+import { deleteCategory, getAllCategories } from '@/app/api/categoryApi'
+import { isAuthenticated } from '@/app/api/userApi'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
+import Swal from 'sweetalert2'
 
 const page = () => {
     let[categories,setCategories] = useState([])
+    let[token,setToken] = useState('')
+    let[success,setSuccess] = useState(false)
 
     useEffect((error)=>{
         getAllCategories()
@@ -14,31 +18,65 @@ const page = () => {
             }
             else{
                 setCategories(data)
+                setSuccess(false)
             }
         })
-    },[])
+        isAuthenticated()
+        .then(data=>{
+            if(data.token){
+             setToken(data.token)
+            }
+        })
+    },[success])
+
+    const handleDelete = (id)=>e =>{
+        e.preventDefault()
+        Swal.fire({title:'Warning',
+            text:'Are u sure u want to delete this category',
+            icon:'question',
+            showCancelButton:true,
+            cancelButtonColor:'green'
+        })
+        .then(result=>{
+            if(result.isConfirmed){
+                deleteCategory(id,token)
+                .then(data=>{
+                    if(data.error){
+                        Swal.fire('Error',data.error,'Error')
+                    }
+                    else{
+                        Swal.fire('success',data.success,'success')
+                    }
+                })
+            }
+        })
+
+
+    }
   return (
-    <>
-    <h1 className='text-2xl underline font-bold text-center'>Categories</h1>
-    <Link href={'/admin/category/new'}>Add new Category</Link>
-    <table>
-        <thead>
-            <tr>
-                <td>S.N</td>
-                <td>Category Name</td>
-                <td>Action</td>
+    <div className='mb-6'>
+    <h1 className='text-2xl underline font-bold text-center mt-5'>Categories</h1>
+    <Link className='ml-7 text-2xl text-blue-600 ' href={'/admin/category/new'}>Add new Category</Link>
+    <table className="border-2 border-gray-300 m-auto w-1/2 mt-2">
+        <thead className='border-2'>
+            <tr className='p-4  font-semibold text-center'>
+                <td className="w-1/12   p-2 border-2">S.N</td>
+                <td className="w-2/12  border-2">Category Name</td>
+                <td className="w-1/12  border-2">Action</td>
             </tr>
         </thead>
         <tbody>
             {
                 categories.length>0 &&
                 categories.map((category,i)=>(
-                    <tr>
-                        <td>{i+1}</td>
-                        <td>{category. category_name}</td>
-                        <td>
+                    <tr className='border-2 p-4   text-center'>
+                        <td className="w-1/12   p-2 border-2" >{i+1}</td>
+                        <td className="w-1/12   p-2 border-2">{category. category_name}</td>
+                        <td className="w-1/12   p-2 border-2">
                             <Link  href = {`/admin/category/${category._id}`}>Update</Link>
-                            <button>Delete</button>
+                            <Link href={''} className='bg-red-600 rounded-lg hover:bg-red-400  p-2 text-white'
+                            onClick={handleDelete(category._id)}
+                            >Delete</Link>
                         </td>
                     </tr>
                 ))
@@ -47,7 +85,7 @@ const page = () => {
         </tbody>
     </table>
      
-    </>
+    </div>
   )
 }
 

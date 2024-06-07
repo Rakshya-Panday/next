@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
 
 const page = () => {
-    let[categoryName,setCategoryName] = useState("")
+    let[category_name,setCategoryName] = useState("")
     let[token,setToken] = useState("")
 
     useEffect(()=>{
@@ -16,9 +16,9 @@ const page = () => {
     },[])
 
     const handleadd = ()=>{
-        addCategory({categoryName},token)
+        addCategory({category_name},token)
         .then(data=>{
-            if(data.error){
+            if( data.error){
                 Swal.fire("Error",data.error,'error')
             }
             else{

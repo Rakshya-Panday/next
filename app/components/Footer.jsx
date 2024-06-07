@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="border-2">
+    <div className="border-2 bg-gray-100">
       <div className="flex justify-around  ">
         <div className="p-5">
         <h2 className="font-semibold text-4xl p-4">
@@ -30,10 +30,7 @@ const Footer = () => {
         </div>
       </div>
       <hr />
-      <div className="col-span-3  grid grid-cols-4 ">
-        <div className="">hello</div>
-        <div>hdv</div>
-      </div>
+      
     </div>
   );
 };

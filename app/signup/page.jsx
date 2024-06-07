@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { register } from "../api/userApi";
+import Swal from "sweetalert2";
 
 
 const Signup = () => {
@@ -25,7 +26,10 @@ const handleSubmit= (e)=>{
     }
     else{
         setUser({username:"",email:"",password:""})
-       alert("User Register successfully")
+       Swal.fire({
+        title:"User Register Successfully",
+        icon: "success"
+       })
     }
   })
 }
@@ -34,7 +38,7 @@ const handleSubmit= (e)=>{
 
   return (
     <div className=" p-5 w  ">
-      <form className="w-full md:w-3/4 lg:w-1/2 #b2bec3p-10 m-auto border-2 p-4 ">
+      <form className="w-full md:w-3/4 lg:w-[600px] #b2bec3p-10 m-auto border-2 p-4  rounded-lg  bg-gray-50  ">
         <h1 className="text-center text-3xl font-bold mb-5 uppercase">
           Create an Account
         </h1>
