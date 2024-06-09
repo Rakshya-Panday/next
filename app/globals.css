@@ -21,7 +21,8 @@
   }
 }
 .home{
-  background-image: url(./assets/images/fashion.jpg);
+  /* background-image: url(./assets/images/fashion.jpg); */
+  background-image: url(../public/assets/images/fashion.jpg);
   background-size: cover;
   
 }

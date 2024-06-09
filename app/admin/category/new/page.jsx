@@ -28,7 +28,7 @@ const page = () => {
     }
   return (
    <>
-   <div className='p-5 rounded-lg shadow-lg'>
+   <div className='p-5 rounded-lg shadow-lg '>
     <h1 className='text-center underline font-3xl mb-8'>Add New Category</h1>
     <div className='text-center'>
         <label htmlFor="" className='mr-2'>Category Name :</label>
