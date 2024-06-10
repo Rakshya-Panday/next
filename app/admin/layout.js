@@ -7,8 +7,8 @@ const layout = ({children}) => {
   return (
     <>
    
-   <div className='min-h-[500px] bg-blue-500'>
-    <div className='grid grid-cols-12 '>
+   <div className=' bg-gray-100'>
+    <div className='grid grid-cols-12  min-h-[500px] '>
         <div className='grid col-span-3 bg-gray-200'>
            {/* <Link href = "admin/dashboard">DashBoard</Link>
            <Link className='' href = "/admin/category">Category</Link>
@@ -18,7 +18,7 @@ const layout = ({children}) => {
             <li>Product</li>
            </ul>
         </div>
-        <div className=' grid col-span-9 m-auto bg-gray-100'>
+        <div className=' grid col-span-9 w-1/2'>
             {children}
         </div>
 

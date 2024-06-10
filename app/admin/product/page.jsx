@@ -56,18 +56,19 @@ const page = () => {
     }
   return (
     <div className='mb-6'>
-    <h1 className='text-2xl underline font-bold text-center mt-5'>Products</h1>
     <Link className='ml-7 text-2xl text-blue-600 ' href={'/admin/product/new'}>Add new Product</Link>
-    <table className="border-2 border-gray-300 m-auto w-1/2 mt-2">
+    <h1 className='text-2xl underline font-bold text-center mt-5'>Products</h1>
+  
+    <table className="border-2 border-gray-300 ml-10 w-full mt-2">
         <thead className='border-2'>
-            <tr className='p-4  font-semibold text-center'>
-                <td className="w-1/12   p-2 border-2">S.N</td>
-                <td className="w-2/12  border-2">Product Image</td>
+            <tr className='font-semibold text-center'>
+                <td className="w-2/12  border-2">S.N</td>
+                <td className="w-3/12  border-2">Product Image</td>
                 <td className="w-2/12  border-2">Title</td>
                 <td className="w-2/12  border-2">Unit Price</td>
                 <td className="w-2/12  border-2">Rating</td>
                 <td className="w-2/12  border-2">Category</td>
-                <td className="w-1/12  border-2">Action</td>
+                <td className="w-[200px]  border-2">Action</td>
             </tr>
         </thead>
         <tbody>

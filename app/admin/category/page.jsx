@@ -54,9 +54,10 @@ const page = () => {
 
     }
   return (
-    <div className='mb-6'>
-    <h1 className='text-2xl underline font-bold text-center mt-5'>Categories</h1>
-    <Link className='ml-7 text-2xl text-blue-600 ' href={'/admin/category/new'}>Add new Category</Link>
+    <div className='mb-6 '>
+ <Link className='ml-7 text-2xl text-blue-600 ' href={'/admin/category/new'}>Add new Category</Link>
+    <h1 className='text-2xl underline text-center font-bold mt-5'>Categories</h1>
+    
     <table className="border-2 border-gray-300 m-auto w-1/2 mt-2">
         <thead className='border-2'>
             <tr className='p-4  font-semibold text-center'>

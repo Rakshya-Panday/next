@@ -5,3 +5,18 @@ export const getAllProducts = ()=>{
     .then(response=>response.json())
     .catch(error=>console.log(error))
 }
+
+export const addProduct = async (product)=>{
+    try {
+        const response = await fetch(`${API}/addnewproduct`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(product)
+        })
+        return await response.json()
+    } catch (error) {
+        return console.log(error)
+    }
+}
