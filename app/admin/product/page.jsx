@@ -1,6 +1,6 @@
 "use client"
-import { deleteCategory, getAllCategories } from '@/app/api/categoryApi'
-import { getAllProducts } from '@/app/api/productApi'
+// import { deleteCategory, getAllCategories } from '@/app/api/categoryApi'
+import { deleteProduct, getAllProducts } from '@/app/api/productApi'
 import { isAuthenticated } from '@/app/api/userApi'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
@@ -40,7 +40,7 @@ const page = () => {
         })
         .then(result=>{
             if(result.isConfirmed){
-                deleteCategory(id,token)
+                deleteProduct(id,token)
                 .then(data=>{
                     if(data.error){
                         Swal.fire('Error',data.error,'Error')
@@ -66,8 +66,9 @@ const page = () => {
                 <td className="w-3/12  border-2">Product Image</td>
                 <td className="w-2/12  border-2">Title</td>
                 <td className="w-2/12  border-2">Unit Price</td>
-                <td className="w-2/12  border-2">Rating</td>
+                <td className="w-1/12  border-2">Description</td>
                 <td className="w-2/12  border-2">Category</td>
+                <td className="w-2/12  border-2">Stock</td>
                 <td className="w-[200px]  border-2">Action</td>
             </tr>
         </thead>
@@ -86,9 +87,9 @@ const page = () => {
                         <td className="w-1/12   p-2 border-2" >{product.category}</td>
                         <td className="w-1/12   p-2 border-2" >{product.counting_stock}</td>
                         <td className="w-1/12   p-2 border-2">
-                            <Link  href = {`/admin/category/${category._id}`}>Update</Link>
+                            <Link  href = {`/admin/product/${product._id}`}>Update</Link>
                             <Link href={''} className='bg-red-600 rounded-lg hover:bg-red-400  p-2 text-white'
-                            onClick={handleDelete(category._id)}
+                            onClick={handleDelete(product._id)}
                             >Delete</Link>
                         </td>
                     </tr>

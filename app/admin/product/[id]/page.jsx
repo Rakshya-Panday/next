@@ -1,7 +1,8 @@
 "use client"
 import { getAllCategories } from "@/app/api/categoryApi";
-import { addProduct } from "@/app/api/productApi";
+import { addProduct, getProducts } from "@/app/api/productApi";
 import { isAuthenticated } from "@/app/api/userApi";
+import { useParams } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 import Swal from "sweetalert2";
 
@@ -16,6 +17,8 @@ const page = () => {
     product_image:"",
     formdata: new FormData
   });
+  let id = useParams()?.id
+
   let sel_ref = useRef()
   let file_ref = useRef()
   const[token,setToken] = useState("")
@@ -29,6 +32,7 @@ const page = () => {
   else {
       formdata.set(e.target.name, e.target.value)
       setProduct({ ...product, [e.target.name]: e.target.value })
+      sel_ref.current.value=data.categories._id
   }
   }
 
@@ -39,15 +43,27 @@ const page = () => {
                     console.log(data.error)
                 }
                 else {
-                    setCategories(data)
+                    setCategories({...data,formdata:new FormData})
                 }
             })
 
         isAuthenticated()
             .then(data => setToken(data.token))
+
+            if(id){
+                getProducts(id)
+                .then(data=>{
+                    if(data.error){
+                        console.log(data.error)
+                    }
+                    else{
+                        setProduct(data)
+                    }
+                })
+            }
   },[])
 
-  const handleAdd = (e)=>{
+  const handleUpdate = (e)=>{
       e.preventDefault();
       addProduct(formdata,token)
       .then(data=>{
@@ -56,8 +72,14 @@ const page = () => {
 
         }
         else{
-          Swal.fire('success')
-            setProduct({title:"",price:"",description:"",category:"",counting_stock:"",product_image:"",  formdata: new FormData})
+          Swal.fire('success','Product Updated Successfully','success')
+            setProduct({title:""
+                ,price:""
+                ,description:""
+                ,category:"",
+                counting_stock:"",
+                product_image:"",
+                  formdata: new FormData})
                     sel_ref.current.value = ''
                     file_ref.current.value = ''
                 
@@ -154,7 +176,7 @@ const page = () => {
                   onChange={handleChange}></textarea>
               </div>
               <button className='border-2 p-2 mt-4 bg-blue-600 w-full m-auto text-white rounded-lg'
-              onClick={handleAdd}>Add Product</button>
+              onClick={handleUpdate}>Add Product</button>
             </div>
            
           </form>
