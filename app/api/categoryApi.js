@@ -42,11 +42,11 @@ export const getCategoryDetails  = id =>{
 }
 
 
-export const deleteCategory = ()=>{
-    return fetch(`${API}/deleteCategory/${id},`,{
+export const deleteCategory = (id,token)=>{
+    return fetch(`${API}/deletecategory/${id},`,{
         method : 'DELETE',
         headers :{
-            "Content Type":"application/json",
+            "Content-Type":"application/json",
             Authorization : `Bearer ${token}` 
         },
         })
@@ -54,3 +54,15 @@ export const deleteCategory = ()=>{
     .catch(error=>console.log(error))
 
 }
+
+// export const deleteProduct = (id, token) => {
+//     return fetch(`${API}/deleteproduct/${id}`, {
+//         method: "DELETE",
+//         headers: {
+//             "Content-Type": "application/json",
+//             "Authorization": `Bearer ${token}`
+//         }
+//     })
+//         .then(response => response.json())
+//         .catch(error => console.log(error))
+// }

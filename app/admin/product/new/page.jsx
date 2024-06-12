@@ -1,173 +1,3 @@
-// "use client"
-// import { getAllCategories } from "@/app/api/categoryApi";
-// import { addProduct } from "@/app/api/productApi";
-// import { isAuthenticated } from "@/app/api/userApi";
-// import React, { useEffect, useRef, useState } from "react";
-// import Swal from "sweetalert2";
-
-// const page = () => {
-//   let [categories, setCategories] = useState([])
-//   const[product,setProduct] = useState({
-//     title: "",
-//     price:"",
-//     description : "",
-//     category:"",
-//     counting_stock:"",
-//     product_image:"",
-//     formdata: new FormData
-//   });
-//   let sel_ref = useRef()
-//   let file_ref = useRef()
-//   const[token,setToken] = useState("")
-//   let {title,price,description,category,counting_stock,product_image,formdata}=product
-
-//   const handleChange = (e)=>{
-//     console.log(e.target.name, e.target.value)
-//     if (e.target.name === "image") {
-//       formdata.set("product_image", e.target.files[0])
-//   }
-//   else {
-//       formdata.set(e.target.name, e.target.value)
-//       setProduct({ ...product, [e.target.name]: e.target.value })
-//   }
-//   }
-
-//   useEffect(()=>{
-//     getAllCategories()
-//             .then(data => {
-//                 if (data.error) {
-//                     console.log(data.error)
-//                 }
-//                 else {
-//                     setCategories(data)
-//                 }
-//             })
-
-//         isAuthenticated()
-//             .then(data => setToken(data.token))
-//   },[])
-
-//   const handleAdd = (e)=>{
-//       e.preventDefault();
-//       addProduct(formdata,token)
-//       .then(data=>{
-//         if( data && data.error){
-//           Swal.fire('error', data.error, 'error')
-
-//         }
-//         else{
-//           Swal.fire('success')
-//             setProduct({title:"",price:"",description:"",category:"",counting_stock:"",product_image:"",  formdata: new FormData})
-//                     sel_ref.current.value = ''
-//                     file_ref.current.value = ''
-                
-            
-          
-//         }
-//       })
-//   }
-
-
- 
-//   return (
-//   <>
-      
-//         <div className='p-5 rounded-lg shadow-lg w-full  mt-8 border-2 bg-gray-300'>
-//           <h2 class="mb-4 text-2xl font-semibold text-center">Add product</h2>
-//           <form  className="w-full" >
-//             <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
-//               <div class="sm:col-span-2">
-//                 <label for="name">Product Name :</label>
-//                 <input
-//                   type="text"
-//                   name="title"
-//                   id="name"
-//                   className="w-[500px] p-2 rounded-xl "
-//                   placeholder="Type product name"
-//                   required=""
-//                   value={title}
-
-//                   onChange={handleChange}/>
-//               </div>
-//               <div>
-//                 <label for="user_avatar">Product Image</label>
-//                 <input
-//                   className="w-[250px] p-2 rounded-xl"
-//                   id="user_avatar"
-//                   name="product_image"
-//                   type="file"
-//                   onChange={handleChange}/>
-//               <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help"></div>
-//               </div>
-              
-//               <div class="w-full">
-//                 <label for="price">Price</label>
-//                 <input
-//                   type="number"
-//                   name="price"
-//                   id="price"
-//                   className="w-[250px] p-2  rounded-xl"
-//                   placeholder=""
-//                   required=""
-//                   value={price}
-//                   onChange={handleChange}/>
-//               </div>
-//               <div>
-//                 <label for="category">Category</label>
-//                 <select
-//                   id="category"
-//                   ref={sel_ref}
-//                   name="category"
-//                   className="w-[250px] p-2 rounded-xl">
-//                   <option selected="">Selece Category</option>
-//                   {
-//                     categories.length>0 &&
-//                     categories.map(category=>{
-//                       return <option value={category._id} key={category._id}>{category.category_name}</option>
-//                     })
-//                   }
-                  
-//                   onChange={handleChange}
-//                 </select>
-//               </div>
-//               <div>
-//                 <label for="item-weight"> Count_InStock</label>
-//                 <input
-//                   type="number"
-//                   name="counting_stock"
-//                   id="item-weight"
-//                   className="w-[250px] p-2 rounded-xl"
-//                   placeholder=""
-//                   required=""
-//                   value={counting_stock}
-//                   onChange={handleChange}/>
-//               </div>
-//               <div class="sm:col-span-2">
-//                 <label for="description">Description</label>
-//                 <textarea
-//                   id="description"
-//                   rows="8"
-//                   name="description"
-//                   className="w-full p-2 rounded-xl"
-//                   value={description}
-//                   placeholder="Write a product description here..."
-//                   onChange={handleChange}></textarea>
-//               </div>
-//               <button className='border-2 p-2 mt-4 bg-blue-600 w-full m-auto text-white rounded-lg'
-//               onClick={handleAdd}>Add Product</button>
-//             </div>
-           
-//           </form>
-//         </div>
-    
-//     </>
-//   );
-// };
-
-// export default page;
-
-
-
 'use client'
 import { getAllCategories } from "@/app/api/categoryApi";
 import { addProduct } from "@/app/api/productApi";
@@ -243,11 +73,7 @@ const addNewProduct = () => {
 
 
     return (<>
-        {/* <div class="flex justify-center m-5">
-    <button id="defaultModalButton" data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
-    Create product
-    </button>
-</div> */}
+      
 
         <div id="defaultModal" tabindex="-1" aria-hidden="true" class="overflow-y-auto overflow-x-hidden z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
             <div class="relative w-full max-w-2xl h-full md:h-auto">
@@ -256,10 +82,7 @@ const addNewProduct = () => {
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
                             Add Product
                         </h3>
-                        {/* <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="defaultModal">
-                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                    <span class="sr-only">Close modal</span>
-                </button> */}
+                       
                     </div>
                     <form action="#">
                         <div class="grid gap-4 mb-4 sm:grid-cols-2">
