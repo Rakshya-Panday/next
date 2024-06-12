@@ -85,9 +85,9 @@ const page = () => {
                         <td className="w-1/12   p-2 border-2" >{product.price}</td>
                         <td className="w-1/12   p-2 border-2" >{product.description}</td>
                         <td className="w-1/12   p-2 border-2" >{product.category}</td>
-                        <td className="w-1/12   p-2 border-2" >{product.counting_stock}</td>
+                        <td className="w-1/12   p-2 border-2" >{product.count_in_stock}</td>
                         <td className="w-1/12   p-2 border-2">
-                            <Link  href = {`/admin/product/${product._id}`}>Update</Link>
+                            <Link  href = {`/admin/product/${product._id}`} className='bg-green-600 hover:bg-green-400 p-2 text-white rounded-lg'>Update</Link>
                             <Link href={''} className='bg-red-600 rounded-lg hover:bg-red-400  p-2 text-white'
                             onClick={handleDelete(product._id)}
                             >Delete</Link>

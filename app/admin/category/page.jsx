@@ -58,7 +58,7 @@ const page = () => {
  <Link className='ml-7 text-2xl text-blue-600 ' href={'/admin/category/new'}>Add new Category</Link>
     <h1 className='text-2xl underline text-center font-bold mt-5'>Categories</h1>
     
-    <table className="border-2 border-gray-300 m-auto w-1/2 mt-2">
+    <table className="border-2 border-gray-300 m-auto w-1/2 mt-5">
         <thead className='border-2'>
             <tr className='p-4  font-semibold text-center'>
                 <td className="w-1/12   p-2 border-2">S.N</td>
@@ -74,7 +74,7 @@ const page = () => {
                         <td className="w-1/12   p-2 border-2" >{i+1}</td>
                         <td className="w-1/12   p-2 border-2">{category. category_name}</td>
                         <td className="w-1/12   p-2 border-2">
-                            <Link  href = {`/admin/category/${category._id}`}>Update</Link>
+                            <Link  href = {`/admin/category/${category._id}`} className='bg-green-600 hover:bg-green-400 p-2 text-white rounded-lg'>Update</Link>
                             <Link href={''} className='bg-red-600 rounded-lg hover:bg-red-400  p-2 text-white'
                             onClick={handleDelete(category._id)}
                             >Delete</Link>
