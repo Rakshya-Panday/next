@@ -37,7 +37,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between flex-grow pl-12">
             <div className="flex gap-5 capitalize pl-12 items-center text-white text-xl">
               <Link href = '/'>Home</Link>
-              <Link href = '/shop'>Shop</Link>
+              <Link href = '/products'>Products</Link>
               <Link href="/about">About</Link>
             
               <Link href = '/contact'>Contact Us</Link>

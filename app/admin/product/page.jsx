@@ -83,7 +83,8 @@ const page = () => {
                             return <tr>
                                 <td>{i + 1}</td>
                                 <td>
-                                  <img src={`http://localhost:5000/${product.product_image}`} alt={product.product_image} className="h-36"/>
+                                  {/* <img  ={`http://localhost:5000/api${product.product_image}`} alt={product.product_image} className="h-36"/> */}
+                                  <img src={`http://localhost:5000/api/${product.product_image}`} alt={product.product_image} className="h-36"/>
                                 </td>
                                 <td>{product.title}</td>
                                 <td>{product.price}</td>

@@ -32,7 +32,7 @@ const page = () => {
   else {
       formdata.set(e.target.name, e.target.value)
       setProduct({ ...product, [e.target.name]: e.target.value })
-      sel_ref.current.value=data.categories._id
+      // sel_ref.current.value=data.categories._id
   }
   }
 
@@ -55,9 +55,11 @@ const page = () => {
                 .then(data=>{
                     if(data.error){
                         console.log(data.error)
+
                     }
                     else{
-                        setProduct(data)
+                        setProduct({...data,formdata :new FormData})
+                      
                     }
                 })
             }
