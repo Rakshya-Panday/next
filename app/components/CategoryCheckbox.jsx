@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getAllCategories } from '../api/categoryApi'
 
-const CategoryCheckbox = (handleFilter) => {
+const CategoryCheckbox = ({handleFilter}) => {
     let [categories, setCategories] = useState([])
 
     let [selected,setSelected] = useState([]) 

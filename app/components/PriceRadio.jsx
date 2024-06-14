@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { prices } from './price'
 
-const PriceRadio = (handleFilter) => {
+const PriceRadio = ({handleFilter}) => {
     let[price,setPrice] = useState([])
 
     const handlePrice = e=>{

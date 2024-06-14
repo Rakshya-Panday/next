@@ -60,3 +60,16 @@ export const updateProduct = async (id,product, token) => {
         return console.log(error)
     }
 }
+
+
+export const getFilterProduct=(filters)=>{
+    return fetch(`${API}/getFilterProducts`,{
+        method:'POST',
+        headers:{
+           "Content-Type":"application/json"
+        },
+        body:JSON.stringify(filters)
+    })
+    .then(response => response.json())
+    .catch(error => console.log(error))
+}
