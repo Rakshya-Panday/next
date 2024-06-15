@@ -178,7 +178,7 @@ const page = () => {
                   onChange={handleChange}></textarea>
               </div>
               <button className='border-2 p-2 mt-4 bg-blue-600 w-full m-auto text-white rounded-lg'
-              onClick={handleUpdate}>Add Product</button>
+              onClick={handleUpdate}>Update Product</button>
             </div>
            
           </form>

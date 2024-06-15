@@ -37,7 +37,7 @@ getFilterProduct(filters)
   return (
     <>
     <div className="grid grid-cols-5">
-        <div className="col-span-1 p-3">
+        <div className="col-span-1 p-3 bg-gray-100">
             <CategoryCheckbox handleFilter = {handleFilter}/>
             <PriceRadio handleFilter = {handleFilter}/>
         </div>

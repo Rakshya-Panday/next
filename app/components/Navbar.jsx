@@ -6,12 +6,12 @@ import { isAuthenticated } from "../api/userApi";
 
 const Navbar = () => {
   let [user, setUser] = useState({})
-  // useEffect(() => {
-  //   isAuthenticated()
-  //     .then(data => {
-  //       setUser(data.user)
-  //     })
-  // }, [])
+  useEffect(() => {
+    isAuthenticated()
+      .then(data => {
+        setUser(data.user)
+      })
+  }, [user])
 
   return (
     <>
@@ -19,7 +19,7 @@ const Navbar = () => {
       <nav className="bg-blue-800">
         <div className="container flex  min-h-[75px] mx-auto">
        {
-        user.role ==1 ?"":<div className="px-8 py-5 bg-blue-600 flex items-center cursor-pointer relative group">
+        user.role ==1 ?<div className="px-8 py-5 bg-blue-600 flex items-center cursor-pointer relative group">
             
         <span className="text-white text-xl capitalize ml-2">
         <i class="bi bi-list text-xl mr-2"></i>
@@ -36,6 +36,7 @@ const Navbar = () => {
 
         </div>
       </div>
+      :""
          
        }
         

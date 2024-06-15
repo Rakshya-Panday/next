@@ -60,8 +60,9 @@ const page = () => {
 
     return (
         <>
+             <Link className='ml-7 text-2xl text-blue-600 '  href={'/admin/product/new'}>Add New Product </Link>
             <h1 className="text-2xl underline font-bold">Products</h1>
-            <Link href={'/admin/product/new'}>Add New Product </Link>
+            
 
             <table>
                 <thead>
